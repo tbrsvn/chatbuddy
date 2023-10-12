@@ -7,4 +7,4 @@ For the model, run the command: ```wget https://huggingface.co/TheBloke/zephyr-7
 
 If you only have 8 GB of RAM/VRAM run this command: ```wget https://huggingface.co/TheBloke/zephyr-7B-alpha-GGUF/resolve/main/zephyr-7b-alpha.Q4_K_M.gguf```, and then change the model in the source to ```zephyr-7b-alpha.Q4_K_M.gguf```
 
-The model is @the-bloke's 8-bit quantization of Zephyr 7B
+The model is @the-bloke's quantizations of Zephyr 7B, which is currently the best-performing small model.
