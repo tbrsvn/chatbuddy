@@ -200,7 +200,7 @@ class ChatGUI:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-m", "--model", type=str, default="buddy.gguf")
+    parser.add_argument("-m", "--model", type=str, default="zephyr-7b-alpha.Q8_0.gguf")
     args = parser.parse_args()
 
     llm = LlamaLLM(model_path=args.model)
