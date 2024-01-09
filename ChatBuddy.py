@@ -1,36 +1,15 @@
 import os
 os.environ["PYTHONUTF8"] = "1"
 
+from ctransformers import AutoModelForCausalLM,AutoConfig
 import ujson as json
 import random
 import re
 import tkinter as tk
 from tkinter import ttk
 from llama_cpp import Llama
-from langchain.llms.base import LLM
 from typing import Optional, List, Mapping
 import argparse
-
-class LlamaLLM(LLM):
-    model_path: str
-    llm: Llama
-
-    @property
-    def _llm_type(self) -> str:
-        return "llama-cpp-python"
-
-    def __init__(self, model_path: str, **kwargs: any):
-        model_path = model_path
-        llm = Llama(model_path=model_path)
-        super().__init__(model_path=model_path, llm=llm, **kwargs)
-
-    def _call(self, prompt: str, stop: Optional[List[str]] = None) -> str:
-        response = self.llm(prompt, stop=stop or [])
-        return response["choices"][0]["text"]
-
-    @property
-    def _identifying_params(self) -> Mapping[str, any]:
-        return {"model_path": self.model_path}
 
 class ChatGUI:
     def __init__(self, root):
@@ -151,7 +130,7 @@ class ChatGUI:
         if selected_character_name:
             try:
                 self.clear_chat_history()
-                llm = LlamaLLM(model_path=args.model)
+                llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-alpha.Q8_0.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 8000)
                 with open(f"{selected_character_name}.bud", "r") as file:
                     character_data = json.load(file)
                 self.character_name = character_data["name"]
@@ -174,13 +153,14 @@ class ChatGUI:
         user_input = self.user_input.get()
         if user_input:
             try:
-                answer = llm(f"System Prompt: {self.system_prompt} {' '.join(self.chat_history)} \nQuestion: {user_input} Answer: ", stop=["Question:", "Q:"])
+                full_chat_history = f"System Prompt: {self.system_prompt}" + f"{self.chat_history_display}"
+                answer = llm(f"{full_chat_history}\nQuestion: {user_input} Answer: ", stop=["Question:", "Q:"])
                 response = f"{answer.strip()}"
                 self.chat_history.append(f"Question: {user_input} Answer: {response}")
-                if len(' '.join(self.chat_history)) >= 3750:
+                if len(' '.join(self.chat_history)) >= 6000:
                     self.chat_history.pop(0)
                 self.chat_history_display.append(f"You: {user_input}\n{self.character_name}: {response}")
-                if len(' '.join(self.chat_history_display)) >= 3750:
+                if len(' '.join(self.chat_history_display)) >= 6000:
                     self.chat_history_display.pop(0)
                 if self.character_name and f"{self.character_name}.bud" in os.listdir():
                     self.save_character(auto_save=True)
@@ -203,7 +183,7 @@ if __name__ == "__main__":
     parser.add_argument("-m", "--model", type=str, default="zephyr-7b-alpha.Q8_0.gguf")
     args = parser.parse_args()
 
-    llm = LlamaLLM(model_path=args.model)
+    llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-alpha.Q8_0.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 6000)
 
     root = tk.Tk()
     root.geometry("800x600")
