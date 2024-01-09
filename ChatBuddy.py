@@ -133,7 +133,7 @@ class ChatGUI:
                 try:
                     llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2000, context_length = 6000)
                 except OSError:
-                    llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF",  model_file="zephyr-7b-beta.Q8_0.gguf" model_type="mistral", max_new_tokens = 2000, context_length = 6000)
+                    llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2000, context_length = 6000)
                 with open(f"{selected_character_name}.bud", "r") as file:
                     character_data = json.load(file)
                 self.character_name = character_data["name"]
@@ -157,7 +157,7 @@ class ChatGUI:
         if user_input:
             try:
                 full_chat_history = f"System Prompt: {self.system_prompt}" + f"{self.chat_history_display}"
-                answer = llm(f"{full_chat_history}\nQuestion: {user_input} Answer: ", stop=["Question:", "Q:"])
+                answer = llm(f"{full_chat_history} \nQuestion: {user_input} Answer: ", stop=["Question:", "Q:"])
                 response = f"{answer.strip()}"
                 self.chat_history.append(f"Question: {user_input} Answer: {response}")
                 if len(' '.join(self.chat_history)) >= 6000:
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     try:
         llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2000, context_length = 6000)
     except OSError:
-        llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF",  model_file="zephyr-7b-beta.Q8_0.gguf" model_type="mistral", max_new_tokens = 2000, context_length = 6000)
+        llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2000, context_length = 6000)
 
     root = tk.Tk()
     root.geometry("800x600")
