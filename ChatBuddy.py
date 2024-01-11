@@ -159,10 +159,10 @@ class ChatGUI:
                 full_chat_history = f"<|prompt|> {self.system_prompt}" + f"{self.chat_history_display}"
                 answer = llm(f"{full_chat_history}<|user|> {user_input} <|assistant|> ", stop=["<|user|>", "Q:"])
                 response = f"{answer.strip()}"
-                self.chat_history.append(f"<|user|> {user_input} <|assistant|> {response}\n")
+                self.chat_history.append(f"<|user|> {user_input} <|assistant|> {response}")
                 if len(' '.join(self.chat_history)) >= 6000:
                     self.chat_history.pop(0)
-                self.chat_history_display.append(f"You: {user_input}\n{self.character_name}: {response}")
+                self.chat_history_display.append(f"You: {user_input}\n{self.character_name}: {response}\n")
                 if len(' '.join(self.chat_history_display)) >= 6000:
                     self.chat_history_display.pop(0)
                 if self.character_name and f"{self.character_name}.bud" in os.listdir():
