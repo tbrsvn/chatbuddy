@@ -15,4 +15,4 @@ Social part: 1 point for a conversation that's supportive and kind, 0 points for
 Math and Science part: 1 point for explaining the problem with the chain of thought and getting it right, 0 points for just giving the answer, 0.5 points for getting the answer wrong but explaining chain of thought, -1 points for wrong and not explaining chain of thought. 
 Literature part: 1 point for good analysis or explanation, 0.5 points for attempting to analyze but missing key points or not fully explaining thoughts, 0 points for giving a simple summary or not engaging with the deeper aspects of the text, -1 points for completely incorrect interpretations or unrelated responses.
 
-[GRAPH]
+[DATA TABLE]
