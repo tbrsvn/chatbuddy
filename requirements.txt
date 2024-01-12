@@ -1,5 +1,4 @@
 ctransformers
 ujson
 llama-cpp-python
-typing
 argparse
