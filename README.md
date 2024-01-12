@@ -15,4 +15,8 @@ Social part: 1 point for a conversation that's supportive and kind, 0 points for
 Math and Science part: 1 point for explaining the problem with the chain of thought and getting it right, 0 points for just giving the answer, 0.5 points for getting the answer wrong but explaining chain of thought, -1 points for wrong and not explaining chain of thought. 
 Literature part: 1 point for good analysis or explanation, 0.5 points for attempting to analyze but missing key points or not fully explaining thoughts, 0 points for giving a simple summary or not engaging with the deeper aspects of the text, -1 points for completely incorrect interpretations or unrelated responses.
 
+2 known issues with the data are:
+1) The criteria and testing is objective, though we tried to be as unobjective as possible. 
+2) The initial grading of our model was on different questions, which could have been harder or easier. We did this so we can’t specifically fine tune the modified system prompt to those problems
+
 [DATA TABLE]
