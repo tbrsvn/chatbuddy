@@ -1,5 +1,7 @@
 # Chat Buddy!
 
+[logo](icon.png)
+
 A chatbot I made for my 8th-grade science fair
 
 This chatbot is geared towards explaining thought process while helping with educational questions, kind of like an open source Khanmigo
