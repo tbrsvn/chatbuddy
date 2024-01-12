@@ -1,6 +1,6 @@
 # Chat Buddy!
 
-[logo](icon.png)
+![logo](icon.png)
 
 A chatbot I made for my 8th-grade science fair
 
