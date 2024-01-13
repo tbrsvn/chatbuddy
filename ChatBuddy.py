@@ -168,7 +168,7 @@ class ChatGUI:
                 if self.character_name and f"{self.character_name}.bud" in os.listdir():
                     self.save_character(auto_save=True)
                 self.text_display.config(state=tk.NORMAL)
-                self.text_display.insert(tk.END, f"\nYou: {user_input}\n\n{self.character_name}: {response}\n")
+                self.text_display.insert(tk.END, f"\nYou: {user_input}\n{self.character_name}: {response}\n")
                 self.user_input.delete(0, tk.END)
                 self.text_display.config(state=tk.DISABLED)
             except Exception as e:
