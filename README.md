@@ -22,4 +22,5 @@ Literature part: 1 point for good analysis or explanation, 0.5 points for attemp
 1) The criteria and testing is objective, though we tried to be as unobjective as possible. 
 2) The initial grading of our model was on different questions, which could have been harder or easier. We did this so we can’t specifically fine tune the modified system prompt to those problems
 
-[DATA TABLE]
+![data1](data2.png)
+![data2](data1.png)
