@@ -1,6 +1,7 @@
 # Chat Buddy!
 
 ![logo](icon.png)
+(made by stable diffusion XL)
 
 A chatbot I made for my 8th-grade science fair
 
