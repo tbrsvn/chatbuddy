@@ -2,4 +2,3 @@ ctransformers
 ujson
 llama-cpp-python
 argparse
-wget
