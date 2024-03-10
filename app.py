@@ -15,6 +15,7 @@ llama_pipeline = pipeline(
     model=model,
     torch_dtype=torch.float16,
     device_map="auto",
+    hf=True,
 )
 
 SYSTEM_PROMPT = """<s>[INST] <<SYS>>
