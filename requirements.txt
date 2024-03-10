@@ -3,3 +3,6 @@ ujson
 llama-cpp-python
 argparse
 transformers
+torch
+accelerate
+gradio
