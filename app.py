@@ -1,12 +1,12 @@
 # import locale
 # locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-from ctransformers import AutoTokenizer
+from transformers import AutoTokenizer
 import ctransformers
 import torch
 
 model = "HuggingFaceH4/zephyr-7b-beta"
 
-tokenizer = AutoTokenizer.from_pretrained("HuggingFaceH4/zephyr-7b-beta")
+tokenizer = AutoTokenizer.from_pretrained(model)
 
 from transformers import pipeline
 
@@ -15,7 +15,6 @@ llama_pipeline = pipeline(
     model=model,
     torch_dtype=torch.float16,
     device_map="auto",
-    hf=True
 )
 
 SYSTEM_PROMPT = """<s>[INST] <<SYS>>
