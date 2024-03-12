@@ -131,9 +131,9 @@ class ChatGUI:
             try:
                 self.clear_chat_history()
                 try:
-                    llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 6000)
+                    llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2048, context_length = 6000)
                 except OSError:
-                    llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 6000)
+                    llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q8_0.gguf", model_type="mistral", max_new_tokens = 2048, context_length = 6000)
                 with open(f"{selected_character_name}.bud", "r") as file:
                     character_data = json.load(file)
                 self.character_name = character_data["name"]
@@ -187,9 +187,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     try:
-        llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q4_K_M.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 6000)
+        llm = AutoModelForCausalLM.from_pretrained("zephyr-7b-beta.Q4_K_M.gguf", model_type="mistral", max_new_tokens = 2048, context_length = 6000)
     except OSError:
-        llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q4_K_M.gguf", model_type="mistral", max_new_tokens = 1000, context_length = 6000)
+        llm = AutoModelForCausalLM.from_pretrained("TheBloke/zephyr-7B-beta-GGUF", model_file="zephyr-7b-beta.Q4_K_M.gguf", model_type="mistral", max_new_tokens = 2048, context_length = 6000)
 
     root = tk.Tk()
     root.geometry("800x600")
