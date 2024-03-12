@@ -156,7 +156,7 @@ class ChatGUI:
         user_input = self.user_input.get()
         if user_input:
             try:
-                full_chat_history = f"<|prompt|> {self.system_prompt}" + f"{self.chat_history_display}"
+                full_chat_history = f"<|system|> {self.system_prompt}" + f"{self.chat_history_display}"
                 answer = llm(f"{full_chat_history}<|user|> {user_input} <|assistant|> ", stop=["<|user|>", "Q:"])
                 response = f"{answer.strip()}"
                 self.chat_history.append(f"<|user|> {user_input} <|assistant|> {response}")
