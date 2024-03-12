@@ -3,7 +3,3 @@ ujson
 llama-cpp-python
 argparse
 transformers
-torch
-accelerate
-gradio==3.50.2
-bitsandbytes
