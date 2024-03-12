@@ -5,4 +5,5 @@ argparse
 transformers
 torch
 accelerate
-gradio
+gradio==3.50.2
+bitsandbytes
